@@ -25,7 +25,16 @@ public class Oblig1 {
     }
 
     public static int ombyttinger(int[] a) {
-
+        int counter = 0; // variabel counter er lik 0
+        for(int i = 0; i < a.length-1; i++) {
+            if(a[i] > a[i+1]) {
+                int temp = a[i];
+                a[i] = a[i+1];
+                a[i+1] = temp;
+                counter++; //telles opp
+            }
+        }
+        return counter; // returner antall ombyttinger
     }
 
     ///// Oppgave 2 //////////////////////////////////////
