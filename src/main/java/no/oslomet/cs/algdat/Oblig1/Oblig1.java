@@ -3,17 +3,29 @@ package no.oslomet.cs.algdat.Oblig1;
 ////// Løsningsforslag Oblig 1 ////////////////////////
 
 import java.lang.UnsupportedOperationException;
+import java.util.NoSuchElementException;
 
 public class Oblig1 {
     private Oblig1() {}
 
     ///// Oppgave 1 //////////////////////////////////////
     public static int maks(int[] a) {
-        throw new UnsupportedOperationException();
+        if(a.length == 0) {
+            throw new NoSuchElementException("Tabell a er tom"); //kastes feil når tabell er tom
+        }
+
+        for(int i = 0; i < a.length-1; i++) { //forløkke for å gå gjennom hver element i arrayet
+            if(a[i] > a[i+1]) { //sammenligning 2 tall som står ved siden av hverandre
+                int temp = a[i]; //lagres tall
+                a[i] = a[i+1]; // byttes plass
+                a[i+1] = temp; //beholdes den gamle verdien
+            }
+        }
+        return a[a.length-1]; //returnes det største tallet som samtidig ligger bakerst
     }
 
     public static int ombyttinger(int[] a) {
-        throw new UnsupportedOperationException();
+
     }
 
     ///// Oppgave 2 //////////////////////////////////////
@@ -36,11 +48,6 @@ public class Oblig1 {
         throw new UnsupportedOperationException();
     }
 
-    ///// Oppgave 6 //////////////////////////////////////
-    public static void rotasjon(char[] a, int k) {
-        throw new UnsupportedOperationException();
-    }
-
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
     public static String flett(String s, String t) {
@@ -52,23 +59,5 @@ public class Oblig1 {
         throw new UnsupportedOperationException();
     }
 
-    ///// Oppgave 8 //////////////////////////////////////
-    public static int[] indekssortering(int[] a) {
-        throw new UnsupportedOperationException();
-    }
-
-    ///// Oppgave 9 //////////////////////////////////////
-    public static int[] tredjeMin(int[] a) {
-        throw new UnsupportedOperationException();
-    }
-
-    ///// Oppgave 10 //////////////////////////////////////
-    public static int bokstavNr(char bokstav) {
-        throw new UnsupportedOperationException();
-    }
-
-    public static boolean inneholdt(String a, String b) {
-        throw new UnsupportedOperationException();
-    }
 
 }  // Oblig1
