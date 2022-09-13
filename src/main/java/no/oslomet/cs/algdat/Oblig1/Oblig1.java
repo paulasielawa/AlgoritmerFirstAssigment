@@ -60,7 +60,15 @@ public class Oblig1 {
 
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
-        throw new UnsupportedOperationException();
+        int counter = 0; // setter opp variable 0
+
+        if(a.length == 0) {
+            return counter; //om det er tomt tabell så det må returnere 0
+        } else {
+            counter++; // om det er noe element så det begynner med 1
+        }
+
+        return counter; // returner antall ulike tall
     }
 
     ///// Oppgave 4 //////////////////////////////////////
