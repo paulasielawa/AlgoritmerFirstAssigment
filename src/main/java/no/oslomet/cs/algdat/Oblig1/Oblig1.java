@@ -67,7 +67,17 @@ public class Oblig1 {
         } else {
             counter++; // om det er noe element så det begynner med 1
         }
-
+        for(int i = 1; i < a.length; i++) { //i utgangspunktet tar vi første element i arrayet
+            int j = 0;
+            for(j=0; j < i; j++) { // her sammenligner vi et tall så går til så lenge til indeksen i
+                if(a[i] == a[j]){ //finner vi samme tall slutter det programmet
+                    break;
+                }
+            }
+            if(j==i){ // det telles opp samme tall kun en gang
+                counter++;
+            }
+        }
         return counter; // returner antall ulike tall
     }
 
