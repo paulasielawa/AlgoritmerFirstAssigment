@@ -39,7 +39,15 @@ public class Oblig1 {
 
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
-        throw new UnsupportedOperationException();
+        int counter = 0; //setter opp variabel lik 0
+
+        if(a.length == 0) {
+            return 0; //dersom arrayet er tom så det er 0 ulike tall
+        } else {
+            counter++; //om det er ikke tom så det er alltid minst et tall
+        }
+
+        return counter;
     }
 
     ///// Oppgave 3 //////////////////////////////////////
