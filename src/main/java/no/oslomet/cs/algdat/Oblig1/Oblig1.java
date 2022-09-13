@@ -46,7 +46,15 @@ public class Oblig1 {
         } else {
             counter++; //om det er ikke tom så det er alltid minst et tall
         }
-
+        for(int i = a.length -1; i > 0; i--) { // går vi nedover i forløkke
+            if(a[i] >= a[i-1]) { //samenligning tall ved siden av hverandre
+                if(a[i] != a[i-1]){ //tall er ikke det samme
+                    counter++;
+                }
+            } else {
+                throw new IllegalStateException("Arrayet er ikke sortert stigende"); //array må være sortert stigende
+            }
+        }
         return counter;
     }
 
