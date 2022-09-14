@@ -177,12 +177,19 @@ public class Oblig1 {
             i++;                        //øker counter
             j++;
         }
-
+        while (i < slengde) {           //dersom arrayer har ulike lengder så må tas resten
+            ut += s.charAt(i);
+            i++;
+        }
+        while (j < tlengde) {           //dersom arrayer har ulike lengder så må tas resten
+            ut += t.charAt(j);
+            j++;
+        }
         return ut;
     }
     /// 7b)
     public static String flett(String... s) {
-
+        return "o";
     }
 
 }  // Oblig1
