@@ -82,19 +82,19 @@ public class Oblig1 {
     }
 
     ///// Oppgave 4 //////////////////////////////////////
+    //metode fra kompendie
     public static void bytt (int[]a,int i, int j) {
         int temp = a[i];
         a[i] = a[j];
         a[j] = temp;
     }
-    public static int partering(int [] a) {
-        int v = 0;
-        int h = a.length -1;
+    //metode fra kompendie
+    private static int parter0(int[]a, int v, int h, int skilleverdi){
         while(true) {
-            while(v <= h && a[v]% 2 != 0) {
+            while(v <= h && a[v]< skilleverdi) {
                 v++;
             }
-            while(v <= h && a[h]% 2 == 0) {
+            while(v <= h && a[h] >= skilleverdi) {
                 h--;
             }
             if( v < h) {
@@ -105,27 +105,46 @@ public class Oblig1 {
             }
         }
     }
-    public static void sortering(int[]a, int fra, int til) {
-        for(int i = fra ; i < til -1; i++) {
-            int m = i;
-            int minverdi = a[i];
-
-            for (int j = i +1; j < til; j++) {
-                if(a[j] < minverdi) {
-                    minverdi = a[j];
-                    m=j;
-                }
-            }
-            int temp = a[i];
-            a[i] = a[m];
-            a[m] = temp;
-        }
+    //metode fra kompendie
+    private static int sParter0(int[] a, int v, int h, int indeks)
+    {
+        bytt(a, indeks, h);           // skilleverdi a[indeks] flyttes bakerst
+        int pos = parter0(a, v, h - 1, a[h]);  // partisjonerer a[v:h - 1]
+        bytt(a, pos, h);              // bytter for å få skilleverdien på rett plass
+        return pos;                   // returnerer posisjonen til skilleverdien
     }
+    //metode fra kompendie
+    private static void kvikksortering0(int[] a, int v, int h)  // en privat metode
+    {
+        if (v >= h) return;  // a[v:h] er tomt eller har maks ett element
+        int k = sParter0(a, v, h, (v + h)/2);  // bruker midtverdien
+        kvikksortering0(a, v, k - 1);     // sorterer intervallet a[v:k-1]
+        kvikksortering0(a, k + 1, h);     // sorterer intervallet a[k+1:h]
+    }
+    //metode fra kompendie
+    public static void kvikksortering(int[] a, int fra, int til) // a[fra:til>
+    {
+        kvikksortering0(a, fra, til - 1);  // v = fra, h = til - 1
+    }
+    //metode fra kompendie
+    public static void kvikksortering(int[] a)   // sorterer hele tabellen
+    {
+        kvikksortering0(a, 0, a.length - 1);
+    }
+
     public static void delsortering(int[] a) {
-            partering(a);
-            int midten = (a.length -1)/2;
-            sortering(a,0,midten+1);
-            sortering(a,midten + 1, a.length);
+        kvikksortering(a); //først må sortere alle elementene i arrayet
+        int counter = 0; //trenger variable som begynner fra null så kan påpeke seinere indeksene foran for å bytte plass
+        for(int i = 0; i <a.length; i++){
+            if(a[i]%2 == 0) { //sjekk om tall er partall (modulo)
+            } else { //else er oddetall som vi er mest interresert til å flytte foran
+                int temp = a[counter]; //kunne bruke også metoden bytt her for å lagre litt mer plass
+                a[counter] = a[i];
+                a[i] = temp;
+                counter++; //når oddetall er opptatt så vi tar neste tall
+            }
+        }
+        kvikksortering(a,counter,a.length); // sorterer vi kun partall
     }
 
     ///// Oppgave 5 //////////////////////////////////////
