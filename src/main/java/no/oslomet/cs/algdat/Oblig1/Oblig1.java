@@ -165,12 +165,24 @@ public class Oblig1 {
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
     public static String flett(String s, String t) {
-        throw new UnsupportedOperationException();
+        int slengde = s.length();
+        int tlengde = t.length();
+        String ut = "";
+        int i = 0;
+        int j = 0;
+
+        while(i < slengde && i < tlengde) {
+            ut += s.charAt(i);
+            ut += t.charAt(j);
+            i++;
+            j++;
+        }
+
+        return ut;
     }
     /// 7b)
     public static String flett(String... s) {
-        throw new UnsupportedOperationException();
-    }
 
+    }
 
 }  // Oblig1
