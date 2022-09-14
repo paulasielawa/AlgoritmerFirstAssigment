@@ -3,6 +3,7 @@ package no.oslomet.cs.algdat.Oblig1;
 ////// Løsningsforslag Oblig 1 ////////////////////////
 
 import java.lang.UnsupportedOperationException;
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class Oblig1 {
@@ -138,7 +139,7 @@ public class Oblig1 {
         for(int i = 0; i <a.length; i++){
             if(a[i]%2 == 0) { //sjekk om tall er partall (modulo)
             } else { //else er oddetall som vi er mest interresert til å flytte foran
-                int temp = a[counter]; //kunne bruke også metoden bytt her for å lagre litt mer plass
+                int temp = a[counter]; //kunne bruke også metoden bytt her for å spare litt mer plass
                 a[counter] = a[i];
                 a[i] = temp;
                 counter++; //når oddetall er opptatt så vi tar neste tall
@@ -149,7 +150,13 @@ public class Oblig1 {
 
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
-        throw new UnsupportedOperationException();
+        int n = a.length;    // arrayets lengde
+        if(n<2) {           //dersom array er tom eller har et element
+            return;
+        }
+        for(int i = n-1; i >= 1; i-- ){                //går vi nedover til første element
+            a[i] = a[i-1];                             //skyves verdier på en enhet
+        }
     }
 
     ///// Oppgave 7 //////////////////////////////////////
