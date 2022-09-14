@@ -165,16 +165,16 @@ public class Oblig1 {
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
     public static String flett(String s, String t) {
-        int slengde = s.length();
-        int tlengde = t.length();
-        String ut = "";
+        int slengde = s.length();   //String s lengde
+        int tlengde = t.length();   //String t lengde
+        String ut = "";             //definerer arrayet for å returnere den på slutten
         int i = 0;
         int j = 0;
 
-        while(i < slengde && i < tlengde) {
-            ut += s.charAt(i);
+        while(i < slengde && j < tlengde) { //fletter char mellom 2 arrayet så lenge til i og j er større en lengde
+            ut += s.charAt(i);          //legger til bokstaver
             ut += t.charAt(j);
-            i++;
+            i++;                        //øker counter
             j++;
         }
 
