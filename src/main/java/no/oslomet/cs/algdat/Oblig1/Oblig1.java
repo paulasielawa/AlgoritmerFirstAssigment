@@ -82,8 +82,50 @@ public class Oblig1 {
     }
 
     ///// Oppgave 4 //////////////////////////////////////
+    public static void bytt (int[]a,int i, int j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+    public static int partering(int [] a) {
+        int v = 0;
+        int h = a.length -1;
+        while(true) {
+            while(v <= h && a[v]% 2 != 0) {
+                v++;
+            }
+            while(v <= h && a[h]% 2 == 0) {
+                h--;
+            }
+            if( v < h) {
+                bytt(a, v++, h--);
+            }
+            else {
+                return v;
+            }
+        }
+    }
+    public static void sortering(int[]a, int fra, int til) {
+        for(int i = fra ; i < til -1; i++) {
+            int m = i;
+            int minverdi = a[i];
+
+            for (int j = i +1; j < til; j++) {
+                if(a[j] < minverdi) {
+                    minverdi = a[j];
+                    m=j;
+                }
+            }
+            int temp = a[i];
+            a[i] = a[m];
+            a[m] = temp;
+        }
+    }
     public static void delsortering(int[] a) {
-        throw new UnsupportedOperationException();
+            partering(a);
+            int midten = (a.length -1)/2;
+            sortering(a,0,midten+1);
+            sortering(a,midten + 1, a.length);
     }
 
     ///// Oppgave 5 //////////////////////////////////////
@@ -96,7 +138,6 @@ public class Oblig1 {
     public static String flett(String s, String t) {
         throw new UnsupportedOperationException();
     }
-
     /// 7b)
     public static String flett(String... s) {
         throw new UnsupportedOperationException();
