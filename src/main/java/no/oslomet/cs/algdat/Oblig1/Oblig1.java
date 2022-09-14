@@ -154,9 +154,12 @@ public class Oblig1 {
         if(n<2) {           //dersom array er tom eller har et element
             return;
         }
+        char[]b = Arrays.copyOfRange(a,n-1,n);      //lagrer vi array som består av
+                                                        // et element som er kopi av siste element i arrayet A
         for(int i = n-1; i >= 1; i-- ){                //går vi nedover til første element
             a[i] = a[i-1];                             //skyves verdier på en enhet
         }
+        System.arraycopy(b,0,a,0,1); //byttes første element med array b første element
     }
 
     ///// Oppgave 7 //////////////////////////////////////
