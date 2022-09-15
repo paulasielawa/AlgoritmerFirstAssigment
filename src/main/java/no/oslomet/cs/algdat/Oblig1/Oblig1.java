@@ -157,7 +157,7 @@ public class Oblig1 {
         char[]b = Arrays.copyOfRange(a,n-1,n);      //lagrer vi array som består av
                                                         // et element som er kopi av siste element i arrayet A
         for(int i = n-1; i >= 1; i-- ){                //går vi nedover til første element
-            a[i] = a[i-1];                             //skyves verdier på en enhet
+            a[i] = a[i-1];                             //skyves verdier på en plass til høyre
         }
         System.arraycopy(b,0,a,0,1); //byttes første element med array b første element
     }
@@ -189,11 +189,11 @@ public class Oblig1 {
     }
     /// 7b)
     public static String flett(String... s) {
-        int lengde = s.length;
+        int lengde = s.length;          //hvor mange string har vi i arrayet
         int m= 0;
-        int maksAntallBokstaver = 0;
+        int maksAntallBokstaver = 0;    //for å definere antall bokstaver av String med mest antall bokstaver
 
-        while(m < lengde) {
+        while(m < lengde) {             //for å finne hvor mange bokstaver
             if(s[m].length() >= maksAntallBokstaver) {
                 maksAntallBokstaver = s[m].length();
             }
@@ -204,7 +204,7 @@ public class Oblig1 {
         int i = 0;
         while(i<maksAntallBokstaver) {
             for(int j = 0; j < lengde; j++) {
-                if(s[j].length() > i) {
+                if(s[j].length() > i) {         //dersom String lengde er mindre enn posisjon til bokstav så det ikke legges til char
                     resultat += s[j].charAt(i);
                 }
             }

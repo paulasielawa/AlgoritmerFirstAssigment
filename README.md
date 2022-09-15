@@ -29,14 +29,28 @@ Hvor mange blir det i gjennomsnitt?
 I gjennomsnitt blir det n-1/2 fordi det summeres best tilfelle og verst tilfelle og deles med antall tilfeller
 (her er det 2).
 
-Kan du på grunnlag av dette si om metoden maks er bedre (eller dårligere) enn de maks-metodene vi har sett på tidligere?
-
 I oppgave 2 så gikk jeg frem ved å sjekke først og fremst arrayet er sortert (if(a[i] >= a[i-1])). 
-Dersom det er sortert så det er mulig å sammenligne tall ved siden av hverandre og det er ikke samme tall (a[i] != a[i-1])
+Dersom det er sortert så det er mulig å sammenligne tall ved siden av hverandre og dersom det er ikke samme tall (a[i] != a[i-1])
 så det økes counter en gang.
 
 I oppgave 3 så gikk jeg frem ved å bruke nested loop. Når arrayet er tomt så det bør ikke kaste ut feil men returnerer bare 0.
-For så vidt så det er samme når vi har et element så det bør returnere 1. Vi må sammenligne hvert tall med alle tall i arayet.
+For så vidt så det er samme når det er et element i array så det bør returnere 1. Det sammenlignes hvert tall med alle tall i arayet.
 Derfor når vi velger et element så bruker vi forløkke igjen til å gå gjennom hele arrayet om igjen.
 
-I oppgave 4 så gikk jeg frem ved å sortere arrayet først. Med arrayet 
+I oppgave 4 så gikk jeg frem ved å sortere arrayet først. Med arrayet som er nå sortert det er mulig å 
+gå gjennom hver element i forløkke for å sjekke hvilke av tall er oddetall ved bruk av if statement. Etter å ha plukket opp
+tall som oppfyler "krav" (if statement) det byttes plass med tall som står foran. På den måten vet jeg hvilke posisjon har
+det siste oddetall står på (int counter) og siste steg er å sortere igjen den delen med partall i arrayet ved å bruke 
+kvikksortering. 
+
+I oppgave 5 går det ut på å implementere metode som gjør kopi av disse elementene i arrayet jeg vil kopiere videre. 
+I forløkke skyves det verdi på en plass til høyre. 
+
+I oppgave 7A så gikk jeg frem ved å implementere while løkker for å flette bokstaver i to String mellom hverandre.
+Resultatet  blir  en  tegnstreng  der  annethvert tegn kommer fra s og annethvert fra t. Der det er 3 while løkker. 
+Første er for å flekke bokstavene i 2 array til en av dem er kortere. Resten av bokstaver det kommer til å fra en av disse
+to while løkker som tas resten. 
+
+I oppgave 7B som argument i metode det er String []. I dette tilfellet det kan være mer fletting mellom ord enn i det tilfellet 
+vi det må flettes kun 2 String. Først det er nødvendig å finne mest antall bokstaver har String i array. Etterpå vet jeg 
+maksAntallBokstaver så det er mulig til å bruke nested loop til å gå gjennom hver bokstav i ord i hele array.
