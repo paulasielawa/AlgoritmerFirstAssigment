@@ -31,3 +31,12 @@ I gjennomsnitt blir det n-1/2 fordi det summeres best tilfelle og verst tilfelle
 
 Kan du på grunnlag av dette si om metoden maks er bedre (eller dårligere) enn de maks-metodene vi har sett på tidligere?
 
+I oppgave 2 så gikk jeg frem ved å sjekke først og fremst arrayet er sortert (if(a[i] >= a[i-1])). 
+Dersom det er sortert så det er mulig å sammenligne tall ved siden av hverandre og det er ikke samme tall (a[i] != a[i-1])
+så det økes counter en gang.
+
+I oppgave 3 så gikk jeg frem ved å bruke nested loop. Når arrayet er tomt så det bør ikke kaste ut feil men returnerer bare 0.
+For så vidt så det er samme når vi har et element så det bør returnere 1. Vi må sammenligne hvert tall med alle tall i arayet.
+Derfor når vi velger et element så bruker vi forløkke igjen til å gå gjennom hele arrayet om igjen.
+
+I oppgave 4 så gikk jeg frem ved å sortere arrayet først. Med arrayet 

@@ -61,7 +61,7 @@ public class Oblig1 {
 
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
-        int counter = 0; // setter opp variable 0
+        int counter = 0; // setter opp variable 0 som teller opp antall ulike tall
 
         if(a.length == 0) {
             return counter; //om det er tomt tabell så det må returnere 0
@@ -70,12 +70,13 @@ public class Oblig1 {
         }
         for(int i = 1; i < a.length; i++) { //i utgangspunktet tar vi første element i arrayet
             int j = 0;
-            for(j=0; j < i; j++) { // her sammenligner vi et tall så går til så lenge til indeksen i
-                if(a[i] == a[j]){ //finner vi samme tall slutter det programmet
+            for(j=0; j < i; j++) {       // her sammenligner vi et tall så går til så lenge til indeksen i
+                                        //finner samme tall og derfor slutter det programmet
+                if(a[i] == a[j]){       //sjekker om det er samme verdi
                     break;
                 }
             }
-            if(j==i){ // det telles opp samme tall kun en gang
+            if(j==i){ // det telles opp samme tall kun en gang som er på samme plass
                 counter++;
             }
         }
@@ -137,8 +138,7 @@ public class Oblig1 {
         kvikksortering(a); //først må sortere alle elementene i arrayet
         int counter = 0; //trenger variable som begynner fra null så kan påpeke seinere indeksene foran for å bytte plass
         for(int i = 0; i <a.length; i++){
-            if(a[i]%2 == 0) { //sjekk om tall er partall (modulo)
-            } else { //else er oddetall som vi er mest interresert til å flytte foran
+            if(a[i]%2 != 0) {           //sjekk om tall er odetall (modulo)
                 int temp = a[counter]; //kunne bruke også metoden bytt her for å spare litt mer plass
                 a[counter] = a[i];
                 a[i] = temp;
@@ -189,7 +189,27 @@ public class Oblig1 {
     }
     /// 7b)
     public static String flett(String... s) {
-        return "o";
-    }
+        int lengde = s.length;
+        int m= 0;
+        int maksAntallBokstaver = 0;
 
+        while(m < lengde) {
+            if(s[m].length() >= maksAntallBokstaver) {
+                maksAntallBokstaver = s[m].length();
+            }
+            m++;
+        }
+        String resultat = "";
+
+        int i = 0;
+        while(i<maksAntallBokstaver) {
+            for(int j = 0; j < lengde; j++) {
+                if(s[j].length() > i) {
+                    resultat += s[j].charAt(i);
+                }
+            }
+            i++;
+        }
+        return resultat;
+    }
 }  // Oblig1
