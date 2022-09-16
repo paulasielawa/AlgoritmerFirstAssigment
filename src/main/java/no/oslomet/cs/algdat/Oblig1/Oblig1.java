@@ -70,7 +70,7 @@ public class Oblig1 {
         }
         for(int i = 1; i < a.length; i++) { //i utgangspunktet tar vi første element i arrayet
             int j = 0;
-            for(j=0; j < i; j++) {       // her sammenligner vi et tall så går til så lenge til indeksen i
+            for(j=0; j < i; j++) {       // her sammenligner vi et tall så går til så lenge til indeksen i,
                                         //finner samme tall og derfor slutter det programmet
                 if(a[i] == a[j]){       //sjekker om det er samme verdi
                     break;
@@ -136,16 +136,16 @@ public class Oblig1 {
 
     public static void delsortering(int[] a) {
         kvikksortering(a); //først må sortere alle elementene i arrayet
-        int counter = 0; //trenger variable som begynner fra null så kan påpeke seinere indeksene foran for å bytte plass
+        int counter = 0; //trenger variable som begynner fra null så kan påpeke seinere indeksene til siste oddetall for å sortere partall delen
         for(int i = 0; i <a.length; i++){
             if(a[i]%2 != 0) {           //sjekk om tall er odetall (modulo)
                 int temp = a[counter]; //kunne bruke også metoden bytt her for å spare litt mer plass
                 a[counter] = a[i];
                 a[i] = temp;
-                counter++; //når oddetall er opptatt så vi tar neste tall
+                counter++;
             }
         }
-        kvikksortering(a,counter,a.length); // sorterer vi kun partall
+        kvikksortering(a,counter,a.length); // det sorterer kun partall
     }
 
     ///// Oppgave 5 //////////////////////////////////////
@@ -159,7 +159,7 @@ public class Oblig1 {
         for(int i = n-1; i >= 1; i-- ){                //går vi nedover til første element
             a[i] = a[i-1];                             //skyves verdier på en plass til høyre
         }
-        System.arraycopy(b,0,a,0,1); //byttes første element med array b første element
+        System.arraycopy(b,0,a,0,1); //byttes første element med array b (her det er 1 element)
     }
 
     ///// Oppgave 7 //////////////////////////////////////
@@ -172,7 +172,7 @@ public class Oblig1 {
         int j = 0;
 
         while(i < slengde && j < tlengde) { //fletter char mellom 2 arrayet så lenge til i og j er større en lengde
-            ut += s.charAt(i);          //legger til bokstaver
+            ut += s.charAt(i);          //legger bokstaver til
             ut += t.charAt(j);
             i++;                        //øker counter
             j++;
@@ -204,7 +204,7 @@ public class Oblig1 {
         int i = 0;
         while(i<maksAntallBokstaver) {
             for(int j = 0; j < lengde; j++) {
-                if(s[j].length() > i) {         //dersom String lengde er mindre enn posisjon til bokstav så det ikke legges til char
+                if(s[j].length() > i) {         //dersom String lengde er mindre enn posisjon til bokstav så det ikke legges char til String
                     resultat += s[j].charAt(i);
                 }
             }

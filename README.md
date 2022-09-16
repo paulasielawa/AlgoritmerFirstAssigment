@@ -2,7 +2,7 @@
 
 Denne oppgaven er en innlevering i Algoritmer og Datastrukturer. 
 Oppgaven er levert av følgende student:
-* Paula Sielawa, S364585, s364584@oslomet.no
+* Paula Sielawa, s364584, s364584@oslomet.no
 
 # Arbeidsfordeling
 
